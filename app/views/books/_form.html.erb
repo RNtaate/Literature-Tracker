@@ -11,6 +11,26 @@
     </div>
   <% end %>
 
+<div class="field">
+    <%= f.label :name%>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'true'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :book_author%>
+    <%= f.text_field :book_author, autocomplete: 'true'%>
+  </div>
+
+  <div class="field">
+    <%= f.label "Cost"%>
+    <%= f.number_field :amount, autocomplete: 'true'%>
+  </div>
+
+  <div class="field">
+    <%= f.label "Time in hours"%> 
+    <%= f.number_field :time, autocomplete: 'true'%>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>
