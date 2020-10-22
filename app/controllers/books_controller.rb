@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  # before_action :set_book, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!
 
   # GET /books
   # GET /books.json
@@ -10,6 +12,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @book = Book.find(params[:id])
   end
 
   # GET /books/new
@@ -19,12 +22,13 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @book = Book.find(params[:id])
   end
 
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params)
+    @book = current_user.bought_books.build(book_params)
     @groups = params[:book][:group_ids]
     @book.save
 
