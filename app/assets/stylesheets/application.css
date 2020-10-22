@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'proxima-light';
+  src: url('/assets/FontsFree-Net-pr16.ttf');
+}
+
+@font-face {
+  font-family: 'proxima-bold';
+  src: url('/assets/FontsFree-Net-Proxima-Nova-Bold.otf');
+}
+
+body {
+  background-image: linear-gradient(235deg, #143562, #3778c2);
+  color: white;
+  font-family: 'proxima-light', sans-serif;
+}
