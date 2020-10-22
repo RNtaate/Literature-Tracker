@@ -4,4 +4,5 @@ class Group < ApplicationRecord
   has_one_attached :image
 
   has_many :book_groups
+  has_many :books, through: :book_groups
 end
