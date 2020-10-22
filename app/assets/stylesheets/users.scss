@@ -1,0 +1,43 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-section {
+  height: 100vh;
+}
+
+.profile-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 2em 0;
+}
+
+.profile-div-image {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.list {
+  padding: 0 2em;
+}
+
+.list > div {
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+  font-size: 5vw;
+}
+
+.list > div:not(:last-child) {
+  border-bottom: 1px solid gray;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
