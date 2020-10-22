@@ -16,6 +16,11 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "true"%>
   </div>
 
+  <div class='field'>
+    <%= f.label "Attach group image" %>
+    <%= f.file_field :image, autocomplete: "true"%>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
