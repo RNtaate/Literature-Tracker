@@ -35,7 +35,8 @@
 }
 
 body {
-  background-image: linear-gradient(235deg, #143562, #3778c2);
+  background: linear-gradient(235deg, #143562, #3778c2);
+  background-attachment: fixed;
   color: white;
   font-family: 'proxima-light', sans-serif;
 }
