@@ -31,6 +31,10 @@
     <%= f.number_field :time, autocomplete: 'true'%>
   </div>
 
+  <%= collection_check_boxes(:book, :group_ids, Group.all, :id, :name) do |g| %>
+  <%= g.label {g.check_box + g.text} %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
