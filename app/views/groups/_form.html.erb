@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class='field'>
+    <%= f.label :name%>
+    <%= f.text_field :name, autofocus: true, autocomplete: "true"%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
