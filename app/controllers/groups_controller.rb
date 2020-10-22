@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  # before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /groups
   # GET /groups.json
@@ -10,6 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group = Group.find(params[:id])
   end
 
   # GET /groups/new
@@ -19,12 +21,13 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @group = Group.find(params[:id])
   end
 
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
 
     respond_to do |format|
       if @group.save
