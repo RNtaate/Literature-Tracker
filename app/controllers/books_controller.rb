@@ -25,6 +25,16 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    @groups = params[:book][:group_ids]
+    @book.save
+
+    current_book_groups = @book.groups
+    @groups.each do |group|
+      if !group.empty?
+        gp = Group.find(group)
+        @book.groups << gp if !current_book_groups.include?(gp)
+      end
+    end
 
     respond_to do |format|
       if @book.save
@@ -40,6 +50,18 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
+    @book = Book.find(params[:id])
+    @groups = params[:book][:group_ids]
+    @book.save
+
+    current_book_groups = @book.groups
+    @groups.each do |group|
+      if !group.empty?
+        gp = Group.find(group)
+        @book.groups << gp if !current_book_groups.include?(gp)
+      end
+    end
+
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
