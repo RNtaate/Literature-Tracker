@@ -1,4 +1,4 @@
-<%= form_with(model: group, local: true) do |f| %>
+<%= form_with(model: group, local: true, class: 'dark-color') do |f| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -12,16 +12,17 @@
   <% end %>
 
   <div class='field'>
-    <%= f.label :name%>
-    <%= f.text_field :name, autofocus: true, autocomplete: "true"%>
+    <%= f.text_field :name, autofocus: true, autocomplete: "true", placeholder: 'Name'%>
   </div>
+  <br>
 
   <div class='field'>
-    <%= f.label "Attach group image" %>
+    <h5><%= f.label "Attach group image" %></h5>
     <%= f.file_field :image, autocomplete: "true"%>
   </div>
+  <br>
   
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions btn new-item">
+    <%= f.submit class: 'inner-btn' %>
   </div>
 <% end %>
