@@ -3,10 +3,13 @@
       <%= link_to groups_path do%>
         <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
       <% end %>
+      <h5>GROUP</h5>
       <h5><%= link_to 'profile', user_path(current_user)%></h5>
   </nav>
 
   <h2 class='group-heading'><%= @group.name %></h2>
+
+  <h5 class='group-heading'>Books: </h5>
 
   <% @group.books.each do |book|%>
         <div class="list-item">
@@ -18,7 +21,7 @@
         </div>
 
         </div>
-    <% end %>
+  <% end %>
     <br>
 </section>
 
