@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :groups
   
-  has_many :bought_books, foreign_key: :author_id, class_name: 'Book'
+  has_many :books, foreign_key: :author_id
 
   has_one_attached :image
 end

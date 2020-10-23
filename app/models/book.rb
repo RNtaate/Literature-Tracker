@@ -5,5 +5,5 @@ class Book < ApplicationRecord
   has_many :book_groups
   has_many :groups, through: :book_groups
 
-  has_many :authors
+  belongs_to :author, class_name: 'User'
 end
