@@ -1,4 +1,60 @@
-<p id="notice"><%= notice %></p>
+<section class="list-section">
+  <nav class='nav-bar'>
+      <%= link_to books_path do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>BOOK</h5>
+      <h5><%= link_to 'profile', user_path(current_user)%></h5>
+  </nav>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+  <h3 class='group-heading'><%= @book.name %></h3>
+
+    <div class='totals'>
+      <h5>Author</h5>
+      <h5><%= @book.book_author%></h5>
+    </div>
+
+    <div class='totals'>
+      <h5>Book cost</h5>
+      <h5>$<%= @book.amount%></h5>
+    </div>
+
+    <div class='totals'>
+      <h5>Reading time</h5>
+      <h5><%= @book.amount%> hrs</h5>
+    </div>
+
+  <h5 class='group-heading'>Groups: </h5>
+
+  <% @book.groups.each do |group|%>
+      <div class="list-item">
+
+        <% if !group.books.empty? %>
+          <div class="image-div" style="background-image: url(<%= rails_blob_url(group.image)%>)">
+          </div>
+        <% end %>
+
+        <div class="list-item-details book-name-date">
+          <p><%= group.name %></p>
+          <small><%= group.created_at.strftime("%B %d, %Y") %></small>
+        </div>
+
+      </div>
+  <% end %>
+
+</section>
+
+<div class='btn-group'>
+  <div class='new-item inner-grouped-btn'>
+    <div class='inner-btn'>
+      <b><%= link_to 'EDIT BOOK', edit_book_path(@book) %></b>
+    </div>
+  </div>
+
+  <div class='delete-item inner-grouped-btn'>
+    <div class='inner-btn'>
+      <b><%= link_to 'DELETE BOOK', book_path(@book), method: :delete, data: {confirm: "Are you sure you want to delete this group? "} %></b>
+    </div>
+  </div>
+</div>
+
