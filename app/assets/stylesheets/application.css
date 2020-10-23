@@ -43,6 +43,14 @@ h6 {
   font-family: 'nunito-bold', sans-serif;
 }
 
+.dark-color {
+  color: #434b54;
+}
+
+.theme-color {
+  color: #3778c2;
+}
+
 body {
   background: linear-gradient(235deg, #143562, #3778c2);
   background-attachment: fixed;
@@ -138,4 +146,38 @@ body {
   text-align: center;
   font-size: 5vw;
   padding: 0.5em;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=file] {
+  display: inline-block;
+  margin: 0.5em 0;
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+  font-size: 5vw;
+  font-family: 'nunito-light', sans-serif;
+}
+
+input[type=submit] {
+  background-color: transparent;
+  color: white;
+  width: 100%;
+}
+
+input[type=file] {
+  padding: 0;
+}
+
+.actions {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.form-section {
+  padding: 0 0.5em;
 }
