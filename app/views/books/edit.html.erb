@@ -1,6 +1,12 @@
-<h1>Editing Book</h1>
+<section class='list-section'> 
+   <nav class='nav-bar'>
+      <%= link_to books_path do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
 
-<%= render 'form', book: @book %>
+      <h5><%= link_to 'Show', @book %></h5>
+  </nav>
+  <h1 class='dark-color'>Editing Book</h1>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+  <%= render 'form', book: @book %>
+</section>

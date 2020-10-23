@@ -1,5 +1,12 @@
-<h1>New Group</h1>
+<section class='list-section'> 
+  <nav class='nav-bar'>
+    <%= link_to groups_path do%>
+      <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+    <% end %>
+  </nav>
 
-<%= render 'form', group: @group %>
+  <h1 class='dark-color'>New Group</h1>
 
-<%= link_to 'Back', groups_path %>
+  <%= render 'form', group: @group %>
+
+</section>
