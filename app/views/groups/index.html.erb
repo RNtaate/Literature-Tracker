@@ -1,25 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
+<section class="list-section">
+  <nav class='nav-bar'>
+      <%= link_to user_path(current_user) do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>GROUPS</h5>
+  </nav>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% @groups.each do |group|%>
+      <%= link_to group_path(group) do %>
+        <div class="list-item">
 
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+          <% if !group.books.empty? %>
+            <div class="image-div" style="background-image: url(<%= rails_blob_url(group.image)%>)">
+            </div>
+          <% end %>
+
+          <div class="list-item-details name-date">
+            <p><%= group.name %></p>
+            <small><%= group.created_at.strftime("%B %d, %Y") %></small>
+          </div>
+
+          <div class="list-item-details meta-details">
+            <h4>$<%= group.books.sum('amount') %></h4>
+            <h4><%=group.books.sum('time')%> hrs</h4>
+          </div>
+        </div>
+
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+    <br>
+</section>
 
-<br>
-
-<%= link_to 'New Group', new_group_path %>
+<div class='btn new-item'>
+  <div class='inner-btn'>
+    <b><%= link_to 'NEW GROUP', new_group_path %></b>
+  </div>
+</div>
