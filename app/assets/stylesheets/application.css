@@ -109,14 +109,27 @@ body {
   max-width: 20%;
 }
 
-.btn {
-  padding: 1em;
+.btn,
+.btn-group {
   position: sticky;
   bottom: 0;
 }
 
+.btn,
+.inner-grouped-btn {
+  padding: 0.6em 1em;
+}
+
+.inner-grouped-btn:not(:last-child) {
+  margin-bottom: 0.3em;
+}
+
 .new-item {
   background: linear-gradient(#5fb523, #457225);
+}
+
+.delete-item {
+  background: linear-gradient(red, rgba(100, 0, 0));
 }
 
 .inner-btn {

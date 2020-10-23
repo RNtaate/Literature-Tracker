@@ -1,4 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<section class="list-section">
+  <nav class='nav-bar'>
+      <%= link_to groups_path do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5><%= link_to 'profile', user_path(current_user)%></h5>
+  </nav>
+
+  <h2 class='group-heading'><%= @group.name %></h2>
+
+  <% @group.books.each do |book|%>
+        <div class="list-item">
+
+        <div class="list-item-details group-name-date">
+            <p>'<%= book.name %>'</p>
+            <small>Bought by: <span><%= book.author.name %></span></small>
+          </div>
+        </div>
+
+        </div>
+    <% end %>
+    <br>
+</section>
+
+<div class='btn-group'>
+  <div class='new-item inner-grouped-btn'>
+    <div class='inner-btn'>
+      <b><%= link_to 'EDIT GROUP', edit_group_path(@group) %></b>
+    </div>
+  </div>
+
+  <div class='delete-item inner-grouped-btn'>
+    <div class='inner-btn'>
+      <b><%= link_to 'DELETE GROUP', group_path(@group), method: :delete, data: {confirm: "Are you sure you want to delete this group? "} %></b>
+    </div>
+  </div>
+</div>
