@@ -25,18 +25,104 @@
 }
 
 @font-face {
-  font-family: 'proxima-light';
-  src: url('/assets/FontsFree-Net-pr16.ttf');
+  font-family: 'nunito-light';
+  src: url('/assets/NunitoSans-Light.ttf');
 }
 
 @font-face {
-  font-family: 'proxima-bold';
-  src: url('/assets/FontsFree-Net-Proxima-Nova-Bold.otf');
+  font-family: 'nunito-bold';
+  src: url('/assets/NunitoSans-Bold.ttf');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'nunito-bold', sans-serif;
 }
 
 body {
   background: linear-gradient(235deg, #143562, #3778c2);
   background-attachment: fixed;
   color: white;
-  font-family: 'proxima-light', sans-serif;
+  font-family: 'nunito-light', sans-serif;
+  position: relative;
+}
+
+.nav-bar {
+  background: linear-gradient(#3778c2, #143562);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 0.8em;
+  font-size: 5vw;
+  position: sticky;
+  top: 0;
+}
+
+.list-section {
+  background-color: #f1f1f1;
+  min-height: 100vh;
+}
+
+.image-div {
+  width: 4em;
+  height: 4em;
+  background-position: center;
+  background-size: cover;
+  margin-right: 0.6em;
+  align-self: center;
+}
+
+.list-item,
+.inner-list-item {
+  display: flex;
+  justify-content: space-between;
+  color: #434b54;
+  font-size: 4vw;
+}
+
+.list-item {
+  margin: 0.6em;
+  padding: 0.5em;
+  border: 1px solid lightgray;
+  background-color: white;
+}
+
+.list-item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.name-date {
+  align-items: flex-start;
+  width: 60%;
+  max-width: 60%;
+}
+
+.meta-details {
+  align-items: flex-end;
+  width: 20%;
+  max-width: 20%;
+}
+
+.btn {
+  padding: 1em;
+  position: sticky;
+  bottom: 0;
+}
+
+.new-item {
+  background: linear-gradient(#5fb523, #457225);
+}
+
+.inner-btn {
+  border: 1px solid white;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 5vw;
+  padding: 0.5em;
 }
