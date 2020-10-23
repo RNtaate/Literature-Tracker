@@ -44,6 +44,8 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   def update
     respond_to do |format|
+      @group = Group.find(params[:id])
+      
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
