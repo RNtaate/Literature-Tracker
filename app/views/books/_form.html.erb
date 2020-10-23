@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= f.label "Cost"%>
-    <%= f.number_field :amount, autocomplete: 'true'%>
+    <%= f.number_field :amount, max: 9999, autocomplete: 'true'%>
   </div>
 
   <div class="field">
     <%= f.label "Time in hours"%> 
-    <%= f.number_field :time, autocomplete: 'true'%>
+    <%= f.number_field :time, max: 9999, autocomplete: 'true'%>
   </div>
 
   <%= collection_check_boxes(:book, :group_ids, Group.all, :id, :name) do |g| %>
