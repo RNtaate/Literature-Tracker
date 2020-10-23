@@ -28,7 +28,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = current_user.bought_books.build(book_params)
+    @book = current_user.books.build(book_params)
     @groups = params[:book][:group_ids]
     @book.save
 
