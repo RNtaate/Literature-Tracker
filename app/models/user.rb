@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  has_many :groups
+  has_many :groups, dependent: :destroy
   
-  has_many :books, foreign_key: :author_id
+  has_many :books, foreign_key: :author_id, dependent: :destroy
 
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
 end
