@@ -25,6 +25,9 @@
           <% if !book.groups.empty? %>
             <div class="image-div" style="background-image: url(<%= rails_blob_url(book.groups.first.image)%>)">
             </div>
+          <% else %>
+            <div class="image-div" style="background-image: url(/assets/ungrouped3.jpg)">
+            </div>
           <% end %>
 
           <div class="list-item-details name-date">
