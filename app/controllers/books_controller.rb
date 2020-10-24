@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all.order('created_at DESC')
+    @books = Book.where(author_id: current_user.id).order('created_at DESC')
   end
 
   # GET /books/1
@@ -87,6 +87,18 @@ class BooksController < ApplicationController
     end
   end
 
+  def ungrouped
+    @all_books = Book.where(author_id: current_user.id).includes(:groups)
+    @books = []
+
+    @all_books.each do |book|
+      @books << book if book.groups.empty?
+    end
+
+    @total_amount = my_sum(@books, 'amount')
+    @total_time = my_sum(@books, 'time')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -96,5 +108,22 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:name, :book_author, :amount, :time)
+    end
+
+    def my_sum(array, string)
+      sum = 0
+      if string == "amount"
+        array.each do |a|
+          sum += a.amount
+        end
+      end
+
+      if string == 'time'
+        array.each do |a|
+          sum += a.time
+        end
+      end
+
+      sum
     end
 end
