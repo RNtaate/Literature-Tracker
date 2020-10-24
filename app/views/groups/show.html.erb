@@ -9,6 +9,11 @@
 
   <h2 class='group-heading'><%= @group.name %></h2>
 
+  <div class='totals'>
+    <h5>Creator</h5>
+    <h5><%= @group.user.name%></h5>
+  </div>  
+
   <h5 class='group-heading'>Books: </h5>
 
   <% @group.books.each do |book|%>

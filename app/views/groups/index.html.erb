@@ -12,9 +12,12 @@
       <%= link_to group_path(group) do %>
         <div class="list-item">
 
-          <% if !group.books.empty? %>
+          <% if group.image.attached? %>
             <div class="image-div" style="background-image: url(<%= rails_blob_url(group.image)%>)">
             </div>
+          <% else %>
+            <div class="image-div" style="background-image: url(/assets/group2.png)">
+            </div>             
           <% end %>
 
           <div class="list-item-details name-date">
@@ -23,8 +26,8 @@
           </div>
 
           <div class="list-item-details meta-details">
-            <h4>$<%= group.books.sum('amount') %></h4>
-            <h4><%=group.books.sum('time')%> hrs</h4>
+            <h4>$<%= group.books.where(author_id: current_user.id).sum('amount') %></h4>
+            <h4><%=group.books.where(author_id: current_user.id).sum('time')%> hrs</h4>
           </div>
         </div>
 

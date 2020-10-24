@@ -29,9 +29,12 @@
   <% @book.groups.each do |group|%>
       <div class="list-item">
 
-        <% if !group.books.empty? %>
+        <% if group.image.attached? %>
           <div class="image-div" style="background-image: url(<%= rails_blob_url(group.image)%>)">
           </div>
+        <% else %>
+          <div class="image-div" style="background-image: url(/assets/group2.png)">
+          </div>          
         <% end %>
 
         <div class="list-item-details book-name-date">

@@ -23,8 +23,13 @@
         <div class="list-item">
 
           <% if !book.groups.empty? %>
-            <div class="image-div" style="background-image: url(<%= rails_blob_url(book.groups.first.image)%>)">
-            </div>
+            <% if book.groups.first.image.attached? %>
+              <div class="image-div" style="background-image: url(<%= rails_blob_url(book.groups.first.image)%>)">
+              </div>
+            <% else %>
+              <div class="image-div" style="background-image: url(/assets/group2.png)">
+              </div>              
+            <% end %>
           <% else %>
             <div class="image-div" style="background-image: url(/assets/ungrouped3.jpg)">
             </div>
