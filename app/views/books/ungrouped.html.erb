@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<section class='list-section'>
+  <nav class='nav-bar'>
+      <%= link_to user_path(current_user) do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>UNGROUPED BOOKS</h5>
+  </nav>
+
+
+    <div class='totals'>
+      <b>Total amount spent</b>
+      <h4>$<%= @total_amount %></h4>
+    </div>
+
+    <div class='totals'>
+      <b>Total reading time</b>
+      <h4><%= @total_time %> hrs</h4>
+    </div>
+
+    <% @books.each do |book|%>
+      <%= link_to book_path(book) do %>
+        <div class="list-item">
+
+          <div class="image-div" style="background-image: url(/assets/ungrouped3.jpg)">
+          </div>
+
+          <div class="list-item-details name-date">
+            <p><%= book.name %></p>
+            <small><%= book.created_at.strftime("%B %d, %Y") %></small>
+          </div>
+
+          <div class="list-item-details meta-details">
+            <h4>$<%= book.amount %></h4>
+            <h4><%=book.time%> hrs</h4>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <br>
+</section>
+
+<div class='btn new-item'>
+  <div class='inner-btn'>
+    <%= link_to 'NEW BOOK', new_book_path %>
+  </div>
+</div>
