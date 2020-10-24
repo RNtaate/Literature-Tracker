@@ -45,24 +45,38 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    respond_to do |format| 
-      if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+    if current_user == @group.user
+
+      respond_to do |format| 
+        if @group.update(group_params)
+          format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+          format.json { render :show, status: :ok, location: @group }
+        else
+          format.html { render :edit }
+          format.json { render json: @group.errors, status: :unprocessable_entity }
+        end
       end
+
+    else
+      redirect_to root_path
     end
   end
 
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
-      format.json { head :no_content }
+    @group = Group.find(params[:id])
+
+    if current_user == @group.user
+      
+      @group.destroy
+      respond_to do |format|
+        format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+
+    else
+      redirect_to root_path
     end
   end
 

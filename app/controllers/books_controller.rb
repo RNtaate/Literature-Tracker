@@ -55,35 +55,50 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     @book = Book.find(params[:id])
-    @groups = params[:book][:group_ids]
-    @book.save
 
-    current_book_groups = @book.groups
-    @groups.each do |group|
-      if !group.empty?
-        gp = Group.find(group)
-        @book.groups << gp if !current_book_groups.include?(gp)
-      end
-    end
+    if current_user == @book.author
 
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+      @groups = params[:book][:group_ids]
+      @book.save
+
+      current_book_groups = @book.groups
+      @groups.each do |group|
+        if !group.empty?
+          gp = Group.find(group)
+          @book.groups << gp if !current_book_groups.include?(gp)
+        end
       end
+
+      respond_to do |format|
+        if @book.update(book_params)
+          format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+          format.json { render :show, status: :ok, location: @book }
+        else
+          format.html { render :edit }
+          format.json { render json: @book.errors, status: :unprocessable_entity }
+        end
+      end
+      
+    else
+      redirect_to root_path
     end
   end
 
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
-    @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-      format.json { head :no_content }
+    @book = Book.find(params[:id])
+
+    if current_user == @book.author
+
+      @book.destroy
+      respond_to do |format|
+        format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+
+    else
+      redirect_to root_path
     end
   end
 
