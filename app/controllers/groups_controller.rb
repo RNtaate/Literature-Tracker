@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.order('name ASC')
+    @groups = Group.all.with_attached_image.includes(:books).order('name ASC')
   end
 
   # GET /groups/1
@@ -43,9 +43,9 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    respond_to do |format|
-      @group = Group.find(params[:id])
-      
+    @group = Group.find(params[:id])
+
+    respond_to do |format| 
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
