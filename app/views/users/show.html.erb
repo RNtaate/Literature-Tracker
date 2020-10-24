@@ -1,7 +1,12 @@
 <section class="profile-section">
   <div class="profile-div">
-    <div class='profile-div-image' style="background-image: url(<%= rails_blob_url(@user.image)%>)">
-    </div>
+    <% if @user.image.attached?%>
+      <div class='profile-div-image' style="background-image: url(<%= rails_blob_url(@user.image)%>)">
+      </div>
+    <% else %>
+      <div class="profile-div-image" style="background-image: url(/assets/blank_profile.jpg)">
+      </div>      
+    <% end%>
     <h3><%= @user.name %></h3>
   </div>
 
