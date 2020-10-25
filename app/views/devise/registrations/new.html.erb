@@ -3,10 +3,10 @@
     <h2>Sign up</h2>
   </nav>
 
-  <section class="form-section">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
+    <section class="form-section">
       <div class="field">
         <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name' %>
       </div>
@@ -35,8 +35,8 @@
 
     </section>
 
-  <div class="actions btn new-item">
-    <%= f.submit 'Sign up', class: 'inner-btn' %>
-  </div>
+    <div class="actions btn new-item">
+      <%= f.submit 'Sign up', class: 'inner-btn' %>
+    </div>
   <% end %>
 </section>

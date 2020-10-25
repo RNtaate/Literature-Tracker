@@ -3,8 +3,8 @@
     <h2>Log in</h2>
   </nav>
 
-  <section class="form-section">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'dark-color') do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'dark-color') do |f| %>
+    <section class="form-section">
       <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email' %>
       </div>
@@ -19,11 +19,12 @@
           <b><%= f.label :remember_me, class: 'dark-color' %></b>
         </div><br>
       <% end %>
-
       <h5><%= render "devise/shared/links" %></h5>
-  </section>
-  <div class="actions btn new-item">
-    <%= f.submit 'Log in', class: 'inner-btn' %>
-  </div>
+    </section>
+
+    <div class="actions btn new-item">
+      <%= f.submit 'Log in', class: 'inner-btn' %>
+    </div>
   <% end %>
+   
 </section>
