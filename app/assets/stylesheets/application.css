@@ -137,7 +137,7 @@ body {
 }
 
 .delete-item {
-  background: linear-gradient(red, rgba(100, 0, 0));
+  background: linear-gradient(red, rgb(100, 0, 0));
 }
 
 .inner-btn {
