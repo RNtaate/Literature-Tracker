@@ -21,18 +21,7 @@
       <%= link_to book_path(book) do %>
         <div class="list-item">
 
-          <% if !book.groups.empty? %>
-            <% if book.groups.first.image.attached? %>
-              <div class="image-div" style="background-image: url(<%= rails_blob_url(book.groups.first.image)%>)">
-              </div>
-            <% else %>
-              <div class="image-div" style="background-image: url(/assets/group2.png)">
-              </div>              
-            <% end %>
-          <% else %>
-            <div class="image-div" style="background-image: url(/assets/ungrouped3.jpg)">
-            </div>
-          <% end %>
+          <%= display_outer_book_image(book, '/assets/group2.png', '/assets/ungrouped3.jpg')%>
 
           <div class="list-item-details name-date">
             <p><%= book.name %></p>

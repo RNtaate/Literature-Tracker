@@ -9,14 +9,9 @@
 
   <% @users.each do |user|%>
     <%= link_to reader_path(user) do%>
-      <div class='list-item'>
-        <% if user.image.attached? %>
-          <div class="image-div" style="background-image: url(<%= rails_blob_url(user.image)%>)">
-          </div>
-        <% else %>
-          <div class="image-div" style="background-image: url(/assets/group2.png)">
-          </div>              
-        <% end %>  
+      <div class='list-item'> 
+
+      <%=display_user_image(user, 'image-div', '/assets/group2.png')%>
 
         <h4 class='list-item-details book-name-date'><%= user.name %></h4>
       </div>
