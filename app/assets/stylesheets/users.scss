@@ -37,3 +37,22 @@ a {
   color: white;
   text-decoration: none;
 }
+
+.book-name-date {
+  width: 80%;
+  max-width: 80%;
+}
+
+.lit-club {
+  padding: 0.5em 0.7em;
+  font-size: 4vw;
+  position: fixed;
+  bottom: 0.5em;
+  right: 1em;
+  border-radius: 20px;
+  color: gray;
+}
+
+.list-club > h5 {
+  border: 1px solid white;
+}

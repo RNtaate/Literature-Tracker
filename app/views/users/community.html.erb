@@ -1,0 +1,26 @@
+<section class="list-section">
+
+  <nav class='nav-bar'>
+    <%= link_to user_path(current_user) do%>
+      <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+    <% end %>
+    <h5>LITERATURE CLUB</h5>
+  </nav>
+
+  <% @users.each do |user|%>
+    <%= link_to reader_path(user) do%>
+      <div class='list-item'>
+        <% if user.image.attached? %>
+          <div class="image-div" style="background-image: url(<%= rails_blob_url(user.image)%>)">
+          </div>
+        <% else %>
+          <div class="image-div" style="background-image: url(/assets/group2.png)">
+          </div>              
+        <% end %>  
+
+        <h4 class='list-item-details book-name-date'><%= user.name %></h4>
+      </div>
+    <% end %>
+  <% end %>
+
+</section>
