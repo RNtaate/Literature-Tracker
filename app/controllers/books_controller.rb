@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.where(author_id: current_user.id).includes(:groups).order('created_at DESC')
+    @books = Book.where_id_is(current_user.id).includes(:groups).order('created_at DESC')
   end
 
   # GET /books/1
@@ -103,7 +103,7 @@ class BooksController < ApplicationController
   end
 
   def ungrouped
-    @all_books = Book.where(author_id: current_user.id).includes(:groups)
+    @all_books = Book.where_id_is(current_user.id).includes(:groups)
     @books = []
 
     @all_books.each do |book|
