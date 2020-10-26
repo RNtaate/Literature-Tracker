@@ -59,6 +59,10 @@ body {
   position: relative;
 }
 
+.app-name {
+  font-style: italic;
+}
+
 .nav-bar {
   background: linear-gradient(#3778c2, #143562);
   display: flex;
