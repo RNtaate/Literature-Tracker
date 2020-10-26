@@ -4,7 +4,7 @@
     <%= link_to community_path do%>
       <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
     <% end %>
-    <h5>Profile</h5>
+    <h5><%= link_to 'Profile', user_path(current_user)%></h5>
   </nav>
   <h2 class= 'group-heading'><%= @user.name %></h2>
   <h5 class= 'group-heading'>Books Read : </h5>
