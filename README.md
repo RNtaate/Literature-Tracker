@@ -2,9 +2,11 @@
 
 ## Project Description
 
-This project is a web tracker application for books built with Ruby on Rails demonstrating learned concepts in the rails section of the [Microverse program](https:www.microverse.org).
+This project is a web tracker application for BOOKS built with Ruby on Rails demonstrating learned concepts in the rails section of the [Microverse program](https:www.microverse.org).
 
-The project involves a number of features such as User sign up and sign in, creating books, creating groups, assigning books to a group and viceversar, amoung others.
+It involves tracking the books a registered User buys, the cost of each book, and how much time was spent reading a particular book.
+
+The project also includes a number of features such as User sign up and sign in, creating groups, assigning books to a group and viceversar, amoung others.
 
 **NOTE:** The project has a `Mobile-only` lay out.
 
