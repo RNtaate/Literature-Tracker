@@ -10,7 +10,7 @@ The project involves a number of features such as User sign up and sign in, crea
 
 ### Screenshots
 
-|Home Page|Books Page|Groups Page|
+|Profile Page|Books Page|Groups Page|
 |-|-|-|
 |![](screenshots/Litrack4.png)|![](screenshots/Litrack2.png)|![](screenshots/Litrack3.png)|
 |||
