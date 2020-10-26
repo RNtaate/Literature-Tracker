@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.with_attached_image.includes(:books).order('name ASC')
+    @groups = Group.all.with_attached_image.order('name ASC')
   end
 
   # GET /groups/1

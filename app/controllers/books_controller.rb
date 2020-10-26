@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.where(author_id: current_user.id).order('created_at DESC')
+    @books = Book.where(author_id: current_user.id).includes(:groups).order('created_at DESC')
   end
 
   # GET /books/1
@@ -127,18 +127,13 @@ class BooksController < ApplicationController
 
     def my_sum(array, string)
       sum = 0
-      if string == "amount"
-        array.each do |a|
-          sum += a.amount
-        end
-      end
+      case string
+      when "amount"
+        array.each { |a| sum += a.amount }
 
-      if string == 'time'
-        array.each do |a|
-          sum += a.time
-        end
+      when
+        array.each { |a| sum += a.time }
       end
-
       sum
     end
 end
