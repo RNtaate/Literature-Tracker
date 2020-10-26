@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   let!(:user){User.create!(name: 'user1', email: 'user1@something.com', password: '123456')}
-
+  let!(:user2){User.create!(name: 'user2', email: 'user2@something.com', password: '123456')}
   context 'Validates the presence of name' do
     it 'Should be valid' do
       @group = Group.create(name: 'Educational', user_id: user.id)
@@ -12,6 +12,22 @@ RSpec.describe Group, type: :model do
     it 'Should not be valid' do
       @group = Group.create(name: '', user_id: user.id)
       expect(@group.save).not_to be true
+    end
+  end
+
+  context 'Validates uniqueness of a group name' do
+    it 'Should be valid' do
+      @group1 = Group.create(name: 'Educational', user_id: user.id)
+      @group2 = Group.create(name: 'Developmental', user_id: user2.id)
+      
+      expect(@group2.save).to be true
+    end
+
+    it 'Should not be valid' do
+      @group1 = Group.create(name: 'Educational', user_id: user.id)
+      @group2 = Group.create(name: 'Educational', user_id: user.id)
+      
+      expect(@group2.save).not_to be true
     end
   end
 
