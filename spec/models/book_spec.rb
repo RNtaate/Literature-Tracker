@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  let!(:user){User.create!(name: 'user1', email: 'user1@something.com', password: '123456')}
+  let!(:user) { User.create!(name: 'user1', email: 'user1@something.com', password: '123456') }
   context 'Validates the presence of name' do
     it 'Should be valid' do
       @book = Book.create(name: 'Thunder', author_id: user.id, book_author: 'Clouds', amount: 45, time: 3)

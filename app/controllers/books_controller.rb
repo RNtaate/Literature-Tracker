@@ -34,9 +34,9 @@ class BooksController < ApplicationController
 
     current_book_groups = @book.groups
     @groups.each do |group|
-      if !group.empty?
+      unless group.empty?
         gp = Group.find(group)
-        @book.groups << gp if !current_book_groups.include?(gp)
+        @book.groups << gp unless current_book_groups.include?(gp)
       end
     end
 
@@ -62,12 +62,8 @@ class BooksController < ApplicationController
       @book.save
 
       current_book_groups = @book.groups
-      @groups.each do |group|
-        if !group.empty?
-          gp = Group.find(group)
-          @book.groups << gp if !current_book_groups.include?(gp)
-        end
-      end
+
+      book_groups_updater(@groups, @book, current_book_groups)
 
       respond_to do |format|
         if @book.update(book_params)
@@ -78,7 +74,7 @@ class BooksController < ApplicationController
           format.json { render json: @book.errors, status: :unprocessable_entity }
         end
       end
-      
+
     else
       redirect_to root_path
     end
@@ -115,25 +111,34 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_book
+    @book = Book.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def book_params
+    params.require(:book).permit(:name, :book_author, :amount, :time)
+  end
+
+  def my_sum(array, string)
+    sum = 0
+    case string
+    when 'amount'
+      array.each { |a| sum += a.amount }
+    when 'time'
+      array.each { |a| sum += a.time }
     end
+    sum
+  end
 
-    # Only allow a list of trusted parameters through.
-    def book_params
-      params.require(:book).permit(:name, :book_author, :amount, :time)
-    end
-
-    def my_sum(array, string)
-      sum = 0
-      case string
-      when "amount"
-        array.each { |a| sum += a.amount }
-
-      when
-        array.each { |a| sum += a.time }
+  def book_groups_updater(groups, book, current_book_groups)
+    groups.each do |group|
+      unless group.empty?
+        gp = Group.find(group)
+        book.groups << gp unless current_book_groups.include?(gp)
       end
-      sum
     end
+  end
 end

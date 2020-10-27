@@ -1,1 +1,1 @@
-json.partial! "books/book", book: @book
+json.partial! 'books/book', book: @book

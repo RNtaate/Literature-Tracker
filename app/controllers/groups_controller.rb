@@ -47,7 +47,7 @@ class GroupsController < ApplicationController
 
     if current_user == @group.user
 
-      respond_to do |format| 
+      respond_to do |format|
         if @group.update(group_params)
           format.html { redirect_to @group, notice: 'Group was successfully updated.' }
           format.json { render :show, status: :ok, location: @group }
@@ -68,7 +68,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     if current_user == @group.user
-      
+
       @group.destroy
       respond_to do |format|
         format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
@@ -81,13 +81,14 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:name, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def group_params
+    params.require(:group).permit(:name, :image)
+  end
 end

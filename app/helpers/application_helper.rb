@@ -1,8 +1,8 @@
 module ApplicationHelper
-
   def display_book_image(book, image1)
     if book.groups.first.image.attached?
-      content_tag(:div, nil, class: 'image-div', style: "background-image: url(#{rails_blob_url(book.groups.first.image)})")
+      content_tag(:div, nil, class: 'image-div',
+                             style: "background-image: url(#{rails_blob_url(book.groups.first.image)})")
     else
       content_tag(:div, nil, class: 'image-div', style: "background-image: url(#{image1})")
     end
@@ -26,9 +26,9 @@ module ApplicationHelper
 
   def display_user_image(user, div_type, image1)
     if user.image.attached?
-      content_tag(:div, nil, class: "#{div_type}", style: "background-image: url(#{rails_blob_url(user.image)})")
+      content_tag(:div, nil, class: div_type.to_s, style: "background-image: url(#{rails_blob_url(user.image)})")
     else
-      content_tag(:div, nil, class: "#{div_type}", style: "background-image: url(#{image1})")
+      content_tag(:div, nil, class: div_type.to_s, style: "background-image: url(#{image1})")
     end
   end
 end

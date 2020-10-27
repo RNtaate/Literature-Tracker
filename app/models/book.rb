@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
-
   validates :name, presence: true
 
   has_many :book_groups, dependent: :destroy

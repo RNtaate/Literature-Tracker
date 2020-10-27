@@ -8,7 +8,8 @@ class Group < ApplicationRecord
 
   belongs_to :user
 
-  validates :image, content_type: {in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'must be (png, jpg or jpeg)'}
+  validates :image, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'],
+                                    message: 'must be (png, jpg or jpeg)' }
 
-  validates :image, size: {less_than: 5.megabytes, message: 'must be less than 5 MB'}
+  validates :image, size: { less_than: 5.megabytes, message: 'must be less than 5 MB' }
 end
