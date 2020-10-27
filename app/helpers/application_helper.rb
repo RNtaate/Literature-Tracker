@@ -31,4 +31,8 @@ module ApplicationHelper
       content_tag(:div, nil, class: div_type.to_s, style: "background-image: url(#{image1})")
     end
   end
+
+  def get_my_sum(list, column_name)
+    list.sum(column_name)
+  end
 end
