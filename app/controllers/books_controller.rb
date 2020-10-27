@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-  # before_action :set_book, only: [:show, :edit, :update, :destroy]
-
   before_action :authenticate_user!
 
   # GET /books
@@ -99,15 +97,10 @@ class BooksController < ApplicationController
   end
 
   def ungrouped
-    @all_books = Book.where_id_is(current_user.id).includes(:groups)
-    @books = []
+    @books = Book.ungrouped_books(current_user)
 
-    @all_books.each do |book|
-      @books << book if book.groups.empty?
-    end
-
-    @total_amount = my_sum(@books, 'amount')
-    @total_time = my_sum(@books, 'time')
+    @total_amount = Book.ungrouped_sum(current_user, 'amount')
+    @total_time = Book.ungrouped_sum(current_user, 'time')
   end
 
   private
@@ -120,17 +113,6 @@ class BooksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:name, :book_author, :amount, :time)
-  end
-
-  def my_sum(array, string)
-    sum = 0
-    case string
-    when 'amount'
-      array.each { |a| sum += a.amount }
-    when 'time'
-      array.each { |a| sum += a.time }
-    end
-    sum
   end
 
   def book_groups_updater(groups, book, current_book_groups)
