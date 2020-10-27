@@ -4,17 +4,18 @@
         <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
       <% end %>
       <h5>BOOKS</h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
   </nav>
 
 
     <div class='totals'>
       <b>Total amount spent</b>
-      <h4>$<%= @books.sum('amount')%></h4>
+      <h4>$<%= get_my_sum(@books, 'amount')%></h4>
     </div>
 
     <div class='totals'>
       <b>Total reading time</b>
-      <h4><%= @books.sum('time')%> hrs</h4>
+      <h4><%= get_my_sum(@books, 'time')%> hrs</h4>
     </div>
 
     <% @books.each do |book|%>

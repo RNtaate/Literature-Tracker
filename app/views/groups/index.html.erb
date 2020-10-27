@@ -6,7 +6,18 @@
         <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
       <% end %>
       <h5>GROUPS</h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
   </nav>
+
+    <div class='totals'>
+      <b>Total amount spent</b>
+      <h4>$<%= get_my_sum(@books, 'amount')%></h4>
+    </div>
+
+    <div class='totals'>
+      <b>Total reading time</b>
+      <h4><%= get_my_sum(@books, 'time')%> hrs</h4>
+    </div>
 
     <% @groups.each do |group|%>
       <%= link_to group_path(group) do %>
@@ -20,8 +31,8 @@
           </div>
 
           <div class="list-item-details meta-details">
-            <h4>$<%= group.books.where(author_id: current_user.id).sum('amount') %></h4>
-            <h4><%=group.books.where(author_id: current_user.id).sum('time')%> hrs</h4>
+            <h4>$<%= get_my_sum(group.books.where_id_is(current_user.id), 'amount') %></h4>
+            <h4><%= get_my_sum(group.books.where_id_is(current_user.id), 'time')%> hrs</h4>
           </div>
         </div>
 
