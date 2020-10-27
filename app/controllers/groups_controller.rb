@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
-  # before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /groups
   # GET /groups.json
   def index
     @groups = Group.all.with_attached_image.order('name ASC')
+    @books = Book.where_id_is(current_user.id).includes(:groups).order('created_at DESC')
   end
 
   # GET /groups/1
