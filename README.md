@@ -27,7 +27,7 @@ The project also includes a number of features such as User sign up and sign in,
 - Rspec
 - Capybara
 
-## How to run this project on your local machine
+## Get Started
 
 ### Prerequisites
 1. You should have ruby installed.(This project was tested on version `2.7.1`)
@@ -38,16 +38,27 @@ The project also includes a number of features such as User sign up and sign in,
    
 ### Steps to follow
 1. Clone the repository to your local machine using `git clone git@github.com:RNtaate/Literature-Tracker.git`
-1. On your local machine, navigate to the private events folder using `cd Literature-Tracker` in your terminal
+1. On your local machine, navigate to the Literature-Tracker folder using `cd Literature-Tracker` in your terminal
 1. Install all the gems for the project by running `bundle` in your terminal
 1. Create database using the following command `rails db:create`
 1. Migrate the database using the following command
-`bin/rake db:migrate`
+`rails db:migrate`
 1. Start the server by using the following command.
 `bin/rails server`
 
 1. Open this link in your favorite browser `http://localhost:3000`
 
+## Testing the project
+
+### Pre-requisites
+- `Image Magick` must be installed
+
+### Instructions
+1. Clone the repository to your local machine using `git clone git@github.com:RNtaate/Literature-Tracker.git`
+1. On your local machine, navigate to the Literature-Tracker folder using `cd Literature-Tracker` in your terminal
+1. Create a new branch using `git checkout -b testing_branch`
+1. Run `bundle install`
+1. run `rspec`
 
 ## Live Demo
 
