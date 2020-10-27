@@ -4,7 +4,7 @@
         <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
       <% end %>
       <h5>GROUP</h5>
-      <h5><%= link_to 'profile', user_path(current_user)%></h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
   </nav>
 
   <h2 class='group-heading'><%= @group.name %></h2>
@@ -20,7 +20,7 @@
         <div class="list-item">
 
         <div class="list-item-details group-name-date">
-            <p>'<%= book.name %>'</p>
+            <h4>'<%= book.name %>'</h4>
             <small>Bought by: <span><%= book.author.name %></span></small>
           </div>
         </div>

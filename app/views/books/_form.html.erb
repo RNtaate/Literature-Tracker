@@ -26,7 +26,8 @@
   <div class="field">
     <%= f.number_field :time, max: 9999, autocomplete: 'true', placeholder: 'Time in hours'%>
   </div>
-
+  <br>
+  <h4 class='group-heading'>Groups: </h4>
   <%= collection_check_boxes(:book, :group_ids, Group.all, :id, :name) do |g| %>
   <%= g.label {g.check_box + g.text} %><br>
   <% end %>

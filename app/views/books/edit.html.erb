@@ -1,10 +1,11 @@
-<section class='list-section'> 
+<section class='list-section form-section'> 
    <nav class='nav-bar'>
       <%= link_to books_path do%>
         <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
       <% end %>
 
       <h5><%= link_to 'Show', @book %></h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
   </nav>
   <h1 class='dark-color'>Editing Book</h1>
 
