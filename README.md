@@ -14,8 +14,8 @@ The project also includes a number of features such as User sign up and sign in,
 
 |Profile Page|Books Page|Groups Page|
 |-|-|-|
-|![](screenshots/Litrack4.png)|![](screenshots/Litrack2.png)|![](screenshots/Litrack3.png)|
-|||
+|![](screenshots/Litrack1.png)|![](screenshots/Litrack2.png)|![](screenshots/Litrack3.png)|
+|![](screenshots/Litrack4.png)
 
 ## Built With
 
