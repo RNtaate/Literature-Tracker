@@ -18,24 +18,7 @@
       <h4><%= get_my_sum(@books, 'time')%> hrs</h4>
     </div>
 
-    <% @books.each do |book|%>
-      <%= link_to book_path(book) do %>
-        <div class="list-item">
-
-          <%= display_outer_book_image(book, '/assets/group2.png', '/assets/ungrouped3.jpg')%>
-
-          <div class="list-item-details name-date">
-            <p><%= book.name %></p>
-            <small><%= book.created_at.strftime("%B %d, %Y") %></small>
-          </div>
-
-          <div class="list-item-details meta-details">
-            <h4>$<%= book.amount %></h4>
-            <h4><%=book.time%> hrs</h4>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <%= display_books_list(@books)%>
     <br>
 </section>
 
