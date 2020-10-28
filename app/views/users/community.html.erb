@@ -8,15 +8,6 @@
     <h5><%= link_to 'Home', user_path(current_user)%></h5>
   </nav>
 
-  <% @users.each do |user|%>
-    <%= link_to reader_path(user) do%>
-      <div class='list-item'> 
-
-      <%=display_user_image(user, 'image-div', '/assets/group2.png')%>
-
-        <h4 class='list-item-details book-name-date'><%= user.name %></h4>
-      </div>
-    <% end %>
-  <% end %>
+  <%= display_users_list(@users)%>
 
 </section>
