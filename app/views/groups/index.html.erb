@@ -10,13 +10,13 @@
   </nav>
 
     <div class='totals'>
-      <b>Total amount spent</b>
-      <h4>$<%= get_my_sum(@books, 'amount')%></h4>
+      <b>Total Grouped amount</b>
+      <h4>$<%= @total_grouped_amount%></h4>
     </div>
 
     <div class='totals'>
-      <b>Total reading time</b>
-      <h4><%= get_my_sum(@books, 'time')%> hrs</h4>
+      <b>Total Grouped time</b>
+      <h4><%= @total_grouped_time %> hrs</h4>
     </div>
 
     <% @groups.each do |group|%>

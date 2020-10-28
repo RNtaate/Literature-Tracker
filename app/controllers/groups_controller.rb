@@ -6,6 +6,9 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all.with_attached_image.order('name ASC')
     @books = Book.where_id_is(current_user.id).includes(:groups).order('created_at DESC')
+
+    @total_grouped_amount = @books.sum('amount') - Book.ungrouped_sum(current_user, 'amount')
+    @total_grouped_time = @books.sum('time') - Book.ungrouped_sum(current_user, 'time')
   end
 
   # GET /groups/1
