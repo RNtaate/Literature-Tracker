@@ -1,15 +1,6 @@
 <%= form_with(model: group, local: true, class: 'dark-color') do |f| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
-      <ul>
-      <% group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_errors(group)%>
 
   <div class='field'>
     <%= f.text_field :name, autofocus: true, autocomplete: "true", placeholder: 'Name'%>

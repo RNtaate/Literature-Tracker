@@ -35,4 +35,19 @@ module ApplicationHelper
   def get_my_sum(list, column_name)
     list.sum(column_name)
   end
+
+  def form_errors(model)
+    if model.errors.any?
+      content_tag :div, id: 'error_explanation' do
+        content_tag(:h2, "#{pluralize(model.errors.count, 'error')} prohibited this book from being saved:") +
+          content_tag(:ul) do
+            model.errors.full_messages.each do |message|
+              concat(content_tag(:li, message.to_s))
+            end
+          end
+      end
+    else
+      ''
+    end
+  end
 end
