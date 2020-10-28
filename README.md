@@ -12,9 +12,11 @@ The project also includes a number of features such as User sign up and sign in,
 
 ### Screenshots
 
-|Profile Page|Books Page|Groups Page|Book Details|
-|-|-|-|-|
-|![](screenshots/Litrack1.png)|![](screenshots/Litrack2.png)|![](screenshots/Litrack3.png)|![](screenshots/Litrack4.png)
+|Profile Page|Books Page
+|-|-|
+|![](screenshots/Litrack1.png)|![](screenshots/Litrack2.png)
+|Groups page|Book Details|
+|![](screenshots/Litrack3.png)|![](screenshots/Litrack4.png)
 
 ## Built With
 
@@ -61,7 +63,7 @@ The project also includes a number of features such as User sign up and sign in,
 
 ## Live Demo
 
-- [Literature Tracker](https://thawing-reaches-37049.herokuapp.com/)
+- [Literature Tracker](https://hidden-refuge-40841.herokuapp.com/)
 
 ## Contributions
 
