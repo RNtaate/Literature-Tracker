@@ -27,18 +27,8 @@
   </section>
   <h5 class='group-heading'>Books (<i>includes other users</i>):</h5>
 
-  <% @group.books.each do |book|%>
-       <div class="list-item">
+  <%= groups_list_show(@group)%>
 
-        <%= display_group_image(@group, '/assets/group2.png') %>
-
-        <div class="list-item-details book-name-date">
-          <p><%= book.name %></p>
-          <small>Bought by <span><%= book.author.name %></span></small>
-        </div>
-
-      </div>
-  <% end %>
     <br>
 </section>
 
