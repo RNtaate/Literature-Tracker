@@ -12,10 +12,13 @@ The project also includes a number of features such as User sign up and sign in,
 
 ### Screenshots
 
-|Profile Page|Books Page|Groups Page|
-|-|-|-|
-|![](screenshots/Litrack1.png)|![](screenshots/Litrack2.png)|![](screenshots/Litrack3.png)|
-|![](screenshots/Litrack4.png)
+|Profile Page|Books Page
+|-|-|
+|![](screenshots/Litrack1.png)|![](screenshots/Litrack2.png)|
+
+|Groups page|Book Details|
+|-|-|
+|![](screenshots/Litrack3.png)|![](screenshots/Litrack4.png)
 
 ## Built With
 
