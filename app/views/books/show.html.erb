@@ -4,40 +4,38 @@
         <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
       <% end %>
       <h5>BOOK</h5>
-      <h5><%= link_to 'profile', user_path(current_user)%></h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
   </nav>
 
-  <h3 class='group-heading'><%= @book.name %></h3>
+  <section class='desc-section'>
+      <div class='list-item'> 
 
-    <div class='totals'>
-      <h5>Author</h5>
-      <h5><%= @book.book_author%></h5>
+        <%=display_outer_book_image(@book,'/assets/group2.png', '/assets/ungrouped3.jpg')%>
+
+        <h4 class='list-item-details book-name-date'><%= @book.name %></h4>
+      </div>
+
+      <p class="desc">Tortor a mus nisl torquent imperdiet dui aliquet laoreet molestie congue platea mus? Pharetra varius blandit odio ut urna. Cubilia taciti senectus ridiculus vivamus platea pretium habitasse vel urna egestas sollicitudin praesent.</p>
+
+     <div class="list-item">
+      <div class="list-item-details group-name-date">
+          <h4>Bought on</h4>
+          <small><%= @book.created_at.strftime("%B %d, %Y") %></small>
+        </div>
+      </div>
     </div>
 
-    <div class='totals'>
+    <div class='totals desc'>
       <h5>Book cost</h5>
       <h5>$<%= @book.amount%></h5>
     </div>
 
-    <div class='totals'>
+    <div class='totals desc'>
       <h5>Reading time</h5>
       <h5><%= @book.time%> hrs</h5>
     </div>
 
-  <h5 class='group-heading'>Groups: </h5>
-
-  <% @book.groups.each do |group|%>
-      <div class="list-item">
-
-        <%= display_group_image(group, '/assets/group2.png') %>
-
-        <div class="list-item-details book-name-date">
-          <p><%= group.name %></p>
-          <small><%= group.created_at.strftime("%B %d, %Y") %></small>
-        </div>
-
-      </div>
-  <% end %>
+  </section><br>
 
 </section>
 
