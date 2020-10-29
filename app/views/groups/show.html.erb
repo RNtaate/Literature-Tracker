@@ -1,0 +1,35 @@
+<section class="list-section">
+  <nav class='nav-bar'>
+      <%= link_to groups_path do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>GROUP</h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
+  </nav>
+
+  <h2 class='group-heading'><%= @group.name %></h2>
+
+  <section class='desc-section'>
+    <div class='totals desc'>
+      <h5>Group amount</h5>
+      <h5>$<%= get_my_sum(@group.books.where_id_is(current_user.id), 'amount')%></h5>
+    </div> 
+
+    <div class='totals desc'>
+      <h5>Group time</h5>
+      <h5><%= get_my_sum(@group.books.where_id_is(current_user.id), 'time')%> hrs</h5>
+    </div> 
+
+    <div class='totals desc'>
+      <h5>Creator</h5>
+      <h5><%= @group.user.name%></h5>
+    </div>  
+  </section>
+  <h5 class='group-heading'>Books (<i>includes other users</i>):</h5>
+
+  <%= groups_list_show(@group)%>
+
+    <br>
+</section>
+
+<%= display_edit_delete('change') %>

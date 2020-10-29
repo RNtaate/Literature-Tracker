@@ -1,0 +1,13 @@
+<div class='btn-group'>
+  <div class='new-item inner-grouped-btn'>
+    <div class='inner-btn'>
+      <b><%= link_to 'EDIT GROUP', edit_group_path(@group) %></b>
+    </div>
+  </div>
+
+  <div class='delete-item inner-grouped-btn'>
+    <div class='inner-btn'>
+      <b><%= link_to 'DELETE GROUP', group_path(@group), method: :delete, data: {confirm: "Are you sure you want to delete this group? "} %></b>
+    </div>
+  </div>
+</div>

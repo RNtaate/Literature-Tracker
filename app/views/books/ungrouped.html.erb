@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<section class='list-section'>
+  <nav class='nav-bar'>
+      <%= link_to user_path(current_user) do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>UNGROUPED BOOKS</h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
+  </nav>
+
+
+    <div class='totals'>
+      <b>Total ungrouped amount</b>
+      <h4>$<%= @total_amount %></h4>
+    </div>
+
+    <div class='totals'>
+      <b>Total ungrouped time</b>
+      <h4><%= @total_time %> hrs</h4>
+    </div>
+
+    <%= display_books_list(@books)%>
+    <br>
+</section>
+

@@ -1,0 +1,41 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.totals,
+.total-desc {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  color: #434b54;
+  font-size: 4.5vw;
+  padding: 1em 1em;
+  margin-bottom: 0.4em;
+  border-bottom: 1px solid lightgray;
+}
+
+.book-name-date {
+  width: 80%;
+  max-width: 80%;
+
+  span {
+    font-family: 'nunito-bold', sans-serif;
+    font-weight: bold;
+  }
+}
+
+.desc {
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+}
+
+.desc:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+p.desc {
+  color: gray;
+  padding: 0 0.7em;
+  font-size: 4.5vw;
+}

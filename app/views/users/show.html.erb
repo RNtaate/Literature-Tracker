@@ -1,0 +1,37 @@
+<section class="profile-section">
+  <div class="profile-div">
+
+    <%= display_user_image(@user, 'profile-div-image', '/assets/blank_profile.jpg') %>
+
+    <h3><%= @user.name %></h3>
+  </div>
+
+  <div class= 'list'>
+
+    <div>
+      <p><%= link_to 'All my books', books_path%><p>
+    </div>
+
+    <div>
+      <p><%= link_to 'All my external books', ungrouped_path%><p>
+    </div>
+
+    <div>
+      <p><%= link_to 'All groups', groups_path%><p>
+    </div>    
+
+    <div>
+      <p><%= link_to 'Account settings', edit_user_registration_path%><p>
+    </div>
+
+    <div>
+      <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure you want to sign out?'}%></p>
+    </div>
+    
+  </div>
+
+  <div class="new-item lit-club" style="">
+    <h5><%= link_to 'The Lit Club', community_path%><h5>
+  </div>
+
+</section>

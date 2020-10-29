@@ -1,0 +1,19 @@
+<%= form_with(model: group, local: true, class: 'dark-color') do |f| %>
+
+<%= form_errors(group)%>
+
+  <div class='field'>
+    <%= f.text_field :name, autofocus: true, autocomplete: "true", placeholder: 'Name'%>
+  </div>
+  <br>
+
+  <div class='field'>
+    <h5><%= f.label "Attach group image" %></h5>
+    <%= f.file_field :image, autocomplete: "true"%>
+  </div>
+  <br>
+  
+  <div class="actions btn new-item">
+    <%= f.submit class: 'inner-btn' %>
+  </div>
+<% end %>

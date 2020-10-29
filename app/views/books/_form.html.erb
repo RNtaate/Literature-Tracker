@@ -1,0 +1,29 @@
+<%= form_with(model: book, local: true, class: 'dark-color') do |f| %>
+
+<%= form_errors(book)%>
+
+<div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: 'true', placeholder: 'Name'%>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :book_author, autocomplete: 'true', placeholder: 'Book_Author'%>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :amount, max: 9999, autocomplete: 'true', placeholder: 'Book Cost'%>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :time, max: 9999, autocomplete: 'true', placeholder: 'Time in hours'%>
+  </div>
+  <br>
+  <h4 class='group-heading'>Groups: </h4>
+  <%= collection_check_boxes(:book, :group_ids, Group.all, :id, :name) do |g| %>
+  <%= g.label {g.check_box + g.text} %><br>
+  <% end %>
+
+  <div class="actions btn new-item">
+    <%= f.submit class: 'inner-btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+example_id                                        | status | run_time        |
+------------------------------------------------- | ------ | --------------- |
+./spec/features/create_book_spec.rb[1:1]          | passed | 2.06 seconds    |
+./spec/features/create_group_spec.rb[1:1]         | passed | 0.20157 seconds |
+./spec/features/sign_in_spec.rb[1:1]              | passed | 0.08627 seconds |
+./spec/features/sign_up_spec.rb[1:1]              | passed | 0.14404 seconds |
+./spec/features/view_ungrouped_books_spec.rb[1:1] | passed | 0.14723 seconds |
+./spec/models/book_spec.rb[1:1:1]                 | passed | 0.03389 seconds |
+./spec/models/book_spec.rb[1:1:2]                 | passed | 0.02807 seconds |
+./spec/models/book_spec.rb[1:2:1]                 | passed | 0.11231 seconds |
+./spec/models/group_spec.rb[1:1:1]                | passed | 0.04526 seconds |
+./spec/models/group_spec.rb[1:1:2]                | passed | 0.04917 seconds |
+./spec/models/group_spec.rb[1:2:1]                | passed | 0.06061 seconds |
+./spec/models/group_spec.rb[1:2:2]                | passed | 0.05543 seconds |
+./spec/models/group_spec.rb[1:3:1]                | passed | 0.0784 seconds  |
+./spec/models/user_spec.rb[1:1:1]                 | passed | 0.02499 seconds |
+./spec/models/user_spec.rb[1:1:2]                 | passed | 0.0263 seconds  |
+./spec/models/user_spec.rb[1:2:1]                 | passed | 0.04378 seconds |
+./spec/models/user_spec.rb[1:3:1]                 | passed | 0.04454 seconds |

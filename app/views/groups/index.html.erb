@@ -1,0 +1,29 @@
+<section class="list-section">
+  <nav class='nav-bar'>
+      <%= link_to user_path(current_user) do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>GROUPS</h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
+  </nav>
+
+  <div class='totals'>
+    <b>Total Grouped amount</b>
+    <h4>$<%= @total_grouped_amount%></h4>
+  </div>
+
+  <div class='totals'>
+    <b>Total Grouped time</b>
+    <h4><%= @total_grouped_time %> hrs</h4>
+  </div>
+
+  <%= display_groups_list(@groups)%>
+
+    <br>
+</section>
+
+<div class='btn new-item'>
+  <div class='inner-btn'>
+    <b><%= link_to 'NEW GROUP', new_group_path %></b>
+  </div>
+</div>

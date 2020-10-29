@@ -1,0 +1,18 @@
+// Place all the styles related to the Groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.group-heading {
+  padding: 0.5em;
+  color: #434b54;
+}
+
+.group-name-date {
+  width: 100%;
+  max-width: 100%;
+
+  span {
+    font-family: 'nunito-bold', sans-serif;
+    font-weight: bold;
+  }
+}

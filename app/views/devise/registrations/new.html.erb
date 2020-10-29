@@ -1,0 +1,37 @@
+<section class="list-section form-section">
+  <nav class='nav-bar'>
+    <h2 class='app-name'>L<i class="fa fa-book" aria-hidden="true"></i>terature Tracker</h2>
+  </nav>
+  <h3 class="group-heading">Sign up</h3>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name' %>
+      </div>
+
+      <div class="field">
+        <%= f.email_field :email, autocomplete: "email", placeholder: 'Email' %>
+      </div>
+
+      <div class="field">
+
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password' %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm password' %>
+      </div><br>
+
+      <div class="field dark-color">
+        <b><%= f.label 'Upload profile Image'%></b><br>
+        <%= f.file_field :image %>
+      </div>
+
+      <h5><%= render "devise/shared/links" %></h5>
+
+    <div class="actions btn new-item">
+      <%= f.submit 'Sign up', class: 'inner-btn' %>
+    </div>
+  <% end %>
+</section>

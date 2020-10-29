@@ -1,0 +1,29 @@
+<section class="list-section">
+  <nav class='nav-bar'>
+    <h2 class='app-name'>L<i class="fa fa-book" aria-hidden="true"></i>terature Tracker</h2>
+  </nav>
+
+  <h3 class="group-heading">Log in</h3>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'dark-color') do |f| %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email' %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <b><%= f.label :remember_me, class: 'dark-color' %></b>
+        </div><br>
+      <% end %>
+      <h5><%= render "devise/shared/links" %></h5>
+
+    <div class="actions btn new-item">
+      <%= f.submit 'Log in', class: 'inner-btn' %>
+    </div>
+  <% end %>
+   
+</section>

@@ -1,0 +1,198 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'nunito-light';
+  src: url('/assets/NunitoSans-Light.ttf');
+}
+
+@font-face {
+  font-family: 'nunito-bold';
+  src: url('/assets/NunitoSans-Bold.ttf');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'nunito-bold', sans-serif;
+}
+
+.dark-color {
+  color: #434b54;
+}
+
+.theme-color {
+  color: #3778c2;
+}
+
+body {
+  background: linear-gradient(235deg, #143562, #3778c2);
+  background-attachment: fixed;
+  color: white;
+  font-family: 'nunito-light', sans-serif;
+  position: relative;
+}
+
+.app-name {
+  font-style: italic;
+}
+
+.nav-bar {
+  background: linear-gradient(#3778c2, #143562);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 0.8em;
+  font-size: 5vw;
+  position: sticky;
+  top: 0;
+}
+
+.list-section {
+  background-color: #f1f1f1;
+  min-height: 100vh;
+}
+
+.form-section {
+  margin-bottom: 15vw;
+}
+
+.image-div {
+  width: 4em;
+  height: 4em;
+  background-position: center;
+  background-size: cover;
+  margin-right: 0.6em;
+  align-self: center;
+}
+
+.list-item,
+.inner-list-item {
+  display: flex;
+  justify-content: space-between;
+  color: #434b54;
+  font-size: 4vw;
+}
+
+.list-item {
+  margin: 0.6em 1em;
+  padding: 0.5em;
+  border-bottom: 1px solid lightgray;
+  background-color: white;
+}
+
+.list-item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.name-date {
+  align-items: flex-start;
+  width: 60%;
+  max-width: 60%;
+}
+
+.meta-details {
+  align-items: flex-end;
+  width: 20%;
+  max-width: 20%;
+}
+
+.btn,
+.btn-group {
+  position: sticky;
+  bottom: 0;
+}
+
+.btn,
+.inner-grouped-btn {
+  padding: 0.6em 1em;
+}
+
+.inner-grouped-btn:not(:last-child) {
+  margin-bottom: 0.3em;
+}
+
+.new-item {
+  background: linear-gradient(#5fb523, #457225);
+}
+
+.delete-item {
+  background: linear-gradient(red, rgb(100, 0, 0));
+}
+
+.inner-btn {
+  border: 1px solid white;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 5vw;
+  padding: 0.5em;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=file] {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  border: none;
+  border-top: 1px solid lightgray;
+  padding: 0.7em;
+  box-sizing: border-box;
+  font-size: 5vw;
+  font-family: 'nunito-light', sans-serif;
+  color: gray;
+}
+
+input[type=submit] {
+  background-color: transparent;
+  color: white;
+  width: 100%;
+}
+
+input[type=file] {
+  background-color: white;
+  color: gray;
+  border-bottom: 1px solid lightgray;
+}
+
+.actions {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.desc-section {
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  padding: 0;
+}

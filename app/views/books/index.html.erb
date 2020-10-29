@@ -1,0 +1,29 @@
+<section class='list-section'>
+  <nav class='nav-bar'>
+      <%= link_to user_path(current_user) do%>
+        <h5><i class="fa fa-arrow-left" aria-hidden="true"></i></h5>
+      <% end %>
+      <h5>BOOKS</h5>
+      <h5><%= link_to 'Home', user_path(current_user)%></h5>
+  </nav>
+
+
+    <div class='totals'>
+      <b>Total amount spent</b>
+      <h4>$<%= get_my_sum(@books, 'amount')%></h4>
+    </div>
+
+    <div class='totals'>
+      <b>Total reading time</b>
+      <h4><%= get_my_sum(@books, 'time')%> hrs</h4>
+    </div>
+
+    <%= display_books_list(@books)%>
+    <br>
+</section>
+
+<div class='btn new-item'>
+  <div class='inner-btn'>
+    <%= link_to 'NEW BOOK', new_book_path %>
+  </div>
+</div>
